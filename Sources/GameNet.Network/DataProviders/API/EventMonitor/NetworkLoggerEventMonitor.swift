@@ -5,8 +5,8 @@
 //
 
 import Foundation
-import Alamofire
 import Pulse
+import Alamofire
 
 struct NetworkLoggerEventMonitor: EventMonitor {
     let logger: NetworkLogger

@@ -1,6 +1,5 @@
 //
 //  NetworkReachability.swift
-//  
 //
 //  Created by Alliston Aleixo on 18/05/22.
 //
@@ -8,18 +7,18 @@
 import Foundation
 import Alamofire
 
-protocol NetworkReachabilityDelegate: AnyObject {
+public protocol NetworkReachabilityDelegate: AnyObject {
     func showOfflineAlert()
     func dismissOfflineAlert()
 }
 
-final class NetworkReachability {
-    static let shared = NetworkReachability()
-    var delegate: NetworkReachabilityDelegate?
+public class NetworkReachability {
+    public static let shared = NetworkReachability()
+    public var delegate: NetworkReachabilityDelegate?
 
     let reachabilityManager = NetworkReachabilityManager(host: "www.google.com")
 
-    func startNetworkMonitoring() {
+    public func startNetworkMonitoring() {
         reachabilityManager?.startListening { status in
             switch status {
             case .notReachable:
