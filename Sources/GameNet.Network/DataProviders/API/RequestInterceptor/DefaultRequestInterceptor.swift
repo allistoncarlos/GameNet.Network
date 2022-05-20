@@ -6,6 +6,7 @@
 
 import Foundation
 import Alamofire
+import GameNet_Keychain
 
 class DefaultRequestInterceptor: RequestInterceptor {
     let retryLimit = 3
@@ -16,10 +17,10 @@ class DefaultRequestInterceptor: RequestInterceptor {
                completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
 
-//        if let accessToken = KeychainDataSource.accessToken.get() {
-//            urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-//            urlRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-//        }
+        if let accessToken = KeychainDataSource.accessToken.get() {
+            urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        }
 
         completion(.success(urlRequest))
     }

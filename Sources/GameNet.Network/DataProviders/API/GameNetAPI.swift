@@ -185,16 +185,6 @@ public enum GameNetAPI {
         }
     }
 
-    var accessToken: String? {
-        return ""
-//        return KeychainDataSource.accessToken.get()
-    }
-
-    var refreshToken: String? {
-        return ""
-//        return KeychainDataSource.refreshToken.get()
-    }
-
     var isRefreshToken: Bool {
         switch self {
         case .refreshToken:
