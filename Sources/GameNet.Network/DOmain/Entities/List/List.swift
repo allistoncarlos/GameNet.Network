@@ -11,7 +11,8 @@ public struct List: Identifiable {
     public var name: String
 
     public init(id: String?,
-                name: String) {
+                name: String
+    ) {
         self.id = id
         self.name = name
     }
