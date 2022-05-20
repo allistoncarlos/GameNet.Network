@@ -9,13 +9,11 @@ import Foundation
 public struct ListResponse: Identifiable, Codable {
     public var id: String?
     public var name: String
-    public var userId: String
     public var creationDate: Date
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case userId
         case creationDate
     }
     

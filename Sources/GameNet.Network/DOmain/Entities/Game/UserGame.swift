@@ -1,13 +1,12 @@
 //
-//  File.swift
-//  
+//  UserGame.swift
 //
-//  Created by Alliston Aleixo on 18/05/22.
+//  Created by Alliston Aleixo on 19/05/22.
 //
 
 import Foundation
 
-public struct UserGameEditRequest: Identifiable, Codable {
+public struct UserGame: Identifiable {
     public var id: String?
     public var gameId: String
     public var userId: String
@@ -17,18 +16,6 @@ public struct UserGameEditRequest: Identifiable, Codable {
     public var want: Bool
     public var digital: Bool
     public var original: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case gameId
-        case userId
-        case price
-        case boughtDate
-        case have
-        case want
-        case digital
-        case original
-    }
     
     public init(id: String?,
                 gameId: String,
@@ -49,5 +36,18 @@ public struct UserGameEditRequest: Identifiable, Codable {
         self.want = want
         self.digital = digital
         self.original = original
+    }
+
+    public func toRequest() -> UserGameEditRequest {
+        return UserGameEditRequest(id: nil,
+                                   gameId: self.gameId,
+                                   userId: self.userId,
+                                   price: self.price,
+                                   boughtDate: self.boughtDate,
+                                   have: self.have,
+                                   want: self.want,
+                                   digital: self.digital,
+                                   original: self.original
+        )
     }
 }

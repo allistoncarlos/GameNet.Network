@@ -14,7 +14,7 @@ public struct PagedResult<T: Codable>: Codable {
     public var search: String?
     public var result: [T]
 
-    var totalPages: Int
+    public var totalPages: Int
 
     enum CodingKeys: String, CodingKey {
         case count
@@ -25,5 +25,32 @@ public struct PagedResult<T: Codable>: Codable {
         case result
 
         case totalPages
+    }
+}
+
+public struct PagedList<T> {
+    public var count: Int
+    public var totalCount: Int
+    public var page: Int?
+    public var pageSize: Int?
+    public var totalPages: Int
+    public var search: String?
+    public var result: [T]
+    
+    public init(count: Int,
+                totalCount: Int,
+                page: Int?,
+                pageSize: Int?,
+                totalPages: Int,
+                search: String?,
+                result: [T]
+    ) {
+        self.count = count
+        self.totalCount = totalCount
+        self.page = page
+        self.pageSize = pageSize
+        self.totalPages = totalPages
+        self.search = search
+        self.result = result
     }
 }

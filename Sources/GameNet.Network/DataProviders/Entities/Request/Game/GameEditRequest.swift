@@ -18,4 +18,15 @@ public struct GameEditRequest: Identifiable, Codable {
         case cover = "gameCoverURL"
         case platformId
     }
+    
+    public init(id: String?,
+                name: String,
+                cover: Data,
+                platformId: String
+    ) {
+        self.id = id
+        self.name = name
+        self.cover = cover
+        self.platformId = platformId
+    }
 }
