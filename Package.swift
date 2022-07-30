@@ -6,20 +6,21 @@ import PackageDescription
 let package = Package(
     name: "GameNet.Network",
     platforms: [
-            .iOS(.v13)
-        ],
+        .iOS(.v13)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "GameNet.Network",
-            targets: ["GameNet.Network"]),
+            targets: ["GameNet.Network"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.1"),
         .package(url: "https://github.com/kean/Pulse.git", from: "1.1.0"),
-        .package(url: "../GameNet.Keychain", branch: "master")
+        .package(url: "https://github.com/allistoncarlos/GameNet.Keychain", branch: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -30,9 +31,11 @@ let package = Package(
                 .product(name: "Alamofire", package: "Alamofire"),
                 .product(name: "Pulse", package: "Pulse"),
                 .product(name: "GameNet.Keychain", package: "GameNet.Keychain")
-            ]),
+            ]
+        ),
         .testTarget(
             name: "GameNet.NetworkTests",
-            dependencies: ["GameNet.Network"]),
+            dependencies: ["GameNet.Network"]
+        ),
     ]
 )

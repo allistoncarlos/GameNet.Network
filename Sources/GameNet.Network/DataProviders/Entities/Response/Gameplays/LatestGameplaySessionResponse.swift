@@ -10,7 +10,7 @@ public struct LatestGameplaySessionResponse: Identifiable, Codable {
     public var id: String?
     public var userGameId: String
     public var start: Date
-    public var finish: Date
+    public var finish: Date?
 
     enum CodingKeys: String, CodingKey {
         case id

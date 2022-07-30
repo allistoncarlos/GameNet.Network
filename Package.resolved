@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "gamenet.keychain",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/allistoncarlos/GameNet.Keychain",
+      "state" : {
+        "branch" : "main",
+        "revision" : "667b2ca288dc8b8b31b41b22b20729fee2c7e82d"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6299daec1d74be12164fec090faf9ed14d0da9d6"
+      }
+    },
+    {
       "identity" : "pulse",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kean/Pulse.git",
