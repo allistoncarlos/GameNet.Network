@@ -21,7 +21,8 @@ public struct PlatformGame: Identifiable {
     }
 }
 
-public struct PlatformGames {
+public struct PlatformGames: Identifiable {
+    public let id = UUID()
     public var total: Int
     public var platforms: [PlatformGame]
     
