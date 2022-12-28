@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct Dashboard {
+public struct Dashboard: Equatable {
     public var boughtByYear: [BoughtGamesByYearTotal]?
     public var finishedByYear: [FinishedGameByYearTotal]?
     public var playingGames: [PlayingGame]?

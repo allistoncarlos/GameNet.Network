@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct PhysicalDigital {
+public struct PhysicalDigital: Equatable {
     public var physical: Int
     public var digital: Int
 

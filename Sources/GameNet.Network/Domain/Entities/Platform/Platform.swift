@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct Platform: Identifiable {
+public struct Platform: Identifiable, Equatable {
     public var id: String?
     public var name: String
     

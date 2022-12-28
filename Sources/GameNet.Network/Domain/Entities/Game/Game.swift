@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct Game: Identifiable {
+public struct Game: Identifiable, Equatable {
     public var id: String?
     public var name: String
     public var cover: Data?

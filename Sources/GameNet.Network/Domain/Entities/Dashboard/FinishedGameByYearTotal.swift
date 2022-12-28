@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct FinishedGameByYearTotal {
+public struct FinishedGameByYearTotal: Equatable {
     public var year: Int
     public var total: Int
 

@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct GameplaySession: Identifiable {
+public struct GameplaySession: Identifiable, Equatable {
     public var id: String?
     public var userGameId: String
     public var start: Date

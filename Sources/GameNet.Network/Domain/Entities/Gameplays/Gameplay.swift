@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Gameplay {
+public struct Gameplay: Equatable {
     public var start: Date
     public var finish: Date?
     

@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct PlatformGame: Identifiable {
+public struct PlatformGame: Identifiable, Equatable {
     public var id: String?
     public var name: String
     public var platformGamesTotal: Int
@@ -21,7 +21,7 @@ public struct PlatformGame: Identifiable {
     }
 }
 
-public struct PlatformGames: Identifiable {
+public struct PlatformGames: Identifiable, Equatable {
     public let id = UUID()
     public var total: Int
     public var platforms: [PlatformGame]
