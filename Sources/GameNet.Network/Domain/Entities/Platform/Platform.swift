@@ -6,16 +6,21 @@
 
 import Foundation
 
-public struct Platform: Identifiable, Equatable {
-    public var id: String?
-    public var name: String
-    
+public struct Platform: Identifiable, Equatable, Hashable {
+
+    // MARK: Lifecycle
+
     public init(id: String?, name: String) {
         self.id = id
         self.name = name
     }
 
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+
     public func toRequest() -> PlatformRequest {
-        return PlatformRequest(id: self.id, name: self.name)
+        return PlatformRequest(id: id, name: name)
     }
 }

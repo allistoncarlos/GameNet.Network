@@ -6,12 +6,18 @@
 
 import Foundation
 
-public struct PhysicalDigital: Equatable {
-    public var physical: Int
-    public var digital: Int
+public struct PhysicalDigital: Equatable, Hashable {
+
+    // MARK: Lifecycle
 
     public init(physical: Int, digital: Int) {
         self.physical = physical
         self.digital = digital
     }
+
+    // MARK: Public
+
+    public var physical: Int
+    public var digital: Int
+
 }

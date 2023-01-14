@@ -6,20 +6,17 @@
 
 import Foundation
 
-public struct Game: Identifiable, Equatable {
-    public var id: String?
-    public var name: String
-    public var cover: Data?
-    public var coverURL: String?
-    public var platformId: String
-    public var platform: String?
+public struct Game: Identifiable, Equatable, Hashable {
 
-    public init(id: String?,
-                name: String,
-                cover: Data?,
-                coverURL: String?,
-                platformId: String,
-                platform: String
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        name: String,
+        cover: Data?,
+        coverURL: String?,
+        platformId: String,
+        platform: String
     ) {
         self.id = id
         self.name = name
@@ -29,11 +26,21 @@ public struct Game: Identifiable, Equatable {
         self.platform = platform
     }
 
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+    public var cover: Data?
+    public var coverURL: String?
+    public var platformId: String
+    public var platform: String?
+
     public func toRequest() -> GameEditRequest {
-        return GameEditRequest(id: self.id,
-                               name: self.name,
-                               cover: self.cover ?? Data(),
-                               platformId: self.platformId
+        return GameEditRequest(
+            id: id,
+            name: name,
+            cover: cover ?? Data(),
+            platformId: platformId
         )
     }
 }

@@ -6,17 +6,24 @@
 
 import Foundation
 
-public struct ListGame: Identifiable, Equatable {
-    public var id: String?
-    public var name: String
-    public var games: [ListItem]?
+public struct ListGame: Identifiable, Equatable, Hashable {
 
-    public init(id: String?,
-                name: String,
-                games: [ListItem]?
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        name: String,
+        games: [ListItem]?
     ) {
         self.id = id
         self.name = name
         self.games = games
     }
+
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+    public var games: [ListItem]?
+
 }

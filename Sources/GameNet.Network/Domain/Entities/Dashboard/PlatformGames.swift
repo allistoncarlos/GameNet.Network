@@ -6,28 +6,44 @@
 
 import Foundation
 
-public struct PlatformGame: Identifiable, Equatable {
-    public var id: String?
-    public var name: String
-    public var platformGamesTotal: Int
+// MARK: - PlatformGame
 
-    public init(id: String?,
-                name: String,
-                platformGamesTotal: Int
+public struct PlatformGame: Identifiable, Equatable, Hashable {
+
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        name: String,
+        platformGamesTotal: Int
     ) {
         self.id = id
         self.name = name
         self.platformGamesTotal = platformGamesTotal
     }
+
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+    public var platformGamesTotal: Int
+
 }
 
-public struct PlatformGames: Identifiable, Equatable {
-    public let id = UUID()
-    public var total: Int
-    public var platforms: [PlatformGame]
-    
+// MARK: - PlatformGames
+
+public struct PlatformGames: Identifiable, Equatable, Hashable {
+
+    // MARK: Lifecycle
+
     public init(total: Int, platforms: [PlatformGame]) {
         self.total = total
         self.platforms = platforms
     }
+
+    // MARK: Public
+
+    public let id = UUID()
+    public var total: Int
+    public var platforms: [PlatformGame]
 }

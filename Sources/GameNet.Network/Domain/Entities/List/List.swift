@@ -6,18 +6,24 @@
 
 import Foundation
 
-public struct List: Identifiable, Equatable {
-    public var id: String?
-    public var name: String
+public struct List: Identifiable, Equatable, Hashable {
 
-    public init(id: String?,
-                name: String
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        name: String
     ) {
         self.id = id
         self.name = name
     }
 
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+
     public func toRequest() -> ListRequest {
-        return ListRequest(id: self.id, name: self.name)
+        return ListRequest(id: id, name: name)
     }
 }

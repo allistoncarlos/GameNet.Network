@@ -6,20 +6,26 @@
 
 import Foundation
 
-public struct GameplaySessions: Identifiable, Equatable {
-    public var id: String?
-    public var sessions: [GameplaySession?]
-    public var totalGameplayTime: String
-    public var averageGameplayTime: String
-    
-    public init(id: String?,
-                sessions: [GameplaySession?],
-                totalGameplayTime: String,
-                averageGameplayTime: String
+public struct GameplaySessions: Identifiable, Equatable, Hashable {
+
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        sessions: [GameplaySession?],
+        totalGameplayTime: String,
+        averageGameplayTime: String
     ) {
         self.id = id
         self.sessions = sessions
         self.totalGameplayTime = totalGameplayTime
         self.averageGameplayTime = averageGameplayTime
     }
+
+    // MARK: Public
+
+    public var id: String?
+    public var sessions: [GameplaySession?]
+    public var totalGameplayTime: String
+    public var averageGameplayTime: String
 }

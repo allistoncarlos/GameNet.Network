@@ -6,22 +6,18 @@
 
 import Foundation
 
-public struct Dashboard: Equatable {
-    public var boughtByYear: [BoughtGamesByYearTotal]?
-    public var finishedByYear: [FinishedGameByYearTotal]?
-    public var playingGames: [PlayingGame]?
-    public var physicalDigital: PhysicalDigital?
-    public var gamesByPlatform: PlatformGames?
-    public var totalPrice: Double?
-    public var totalGames: Int?
+public struct Dashboard: Equatable, Hashable {
 
-    public init(boughtByYear: [BoughtGamesByYearTotal]?,
-                finishedByYear: [FinishedGameByYearTotal]?,
-                playingGames: [PlayingGame]?,
-                physicalDigital: PhysicalDigital?,
-                gamesByPlatform: PlatformGames?,
-                totalPrice: Double?,
-                totalGames: Int?
+    // MARK: Lifecycle
+
+    public init(
+        boughtByYear: [BoughtGamesByYearTotal]?,
+        finishedByYear: [FinishedGameByYearTotal]?,
+        playingGames: [PlayingGame]?,
+        physicalDigital: PhysicalDigital?,
+        gamesByPlatform: PlatformGames?,
+        totalPrice: Double?,
+        totalGames: Int?
     ) {
         self.boughtByYear = boughtByYear
         self.finishedByYear = finishedByYear
@@ -31,4 +27,15 @@ public struct Dashboard: Equatable {
         self.totalPrice = totalPrice
         self.totalGames = totalGames
     }
+
+    // MARK: Public
+
+    public var boughtByYear: [BoughtGamesByYearTotal]?
+    public var finishedByYear: [FinishedGameByYearTotal]?
+    public var playingGames: [PlayingGame]?
+    public var physicalDigital: PhysicalDigital?
+    public var gamesByPlatform: PlatformGames?
+    public var totalPrice: Double?
+    public var totalGames: Int?
+
 }

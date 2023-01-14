@@ -6,26 +6,20 @@
 
 import Foundation
 
-public struct UserGame: Identifiable, Equatable {
-    public var id: String?
-    public var gameId: String
-    public var userId: String
-    public var price: Double
-    public var boughtDate: Date
-    public var have: Bool
-    public var want: Bool
-    public var digital: Bool
-    public var original: Bool
-    
-    public init(id: String?,
-                gameId: String,
-                userId: String,
-                price: Double,
-                boughtDate: Date,
-                have: Bool,
-                want: Bool,
-                digital: Bool,
-                original: Bool
+public struct UserGame: Identifiable, Equatable, Hashable {
+
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        gameId: String,
+        userId: String,
+        price: Double,
+        boughtDate: Date,
+        have: Bool,
+        want: Bool,
+        digital: Bool,
+        original: Bool
     ) {
         self.id = id
         self.gameId = gameId
@@ -38,16 +32,29 @@ public struct UserGame: Identifiable, Equatable {
         self.original = original
     }
 
+    // MARK: Public
+
+    public var id: String?
+    public var gameId: String
+    public var userId: String
+    public var price: Double
+    public var boughtDate: Date
+    public var have: Bool
+    public var want: Bool
+    public var digital: Bool
+    public var original: Bool
+
     public func toRequest() -> UserGameEditRequest {
-        return UserGameEditRequest(id: nil,
-                                   gameId: self.gameId,
-                                   userId: self.userId,
-                                   price: self.price,
-                                   boughtDate: self.boughtDate,
-                                   have: self.have,
-                                   want: self.want,
-                                   digital: self.digital,
-                                   original: self.original
+        return UserGameEditRequest(
+            id: nil,
+            gameId: gameId,
+            userId: userId,
+            price: price,
+            boughtDate: boughtDate,
+            have: have,
+            want: want,
+            digital: digital,
+            original: original
         )
     }
 }
