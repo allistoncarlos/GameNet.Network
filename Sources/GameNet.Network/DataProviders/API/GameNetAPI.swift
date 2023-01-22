@@ -4,12 +4,14 @@
 //  Created by Alliston Aleixo on 18/05/22.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
-internal struct APIConstants {
+// MARK: - APIConstants
+
+internal enum APIConstants {
     static let apiPath: String = (Bundle.main.infoDictionary!["API_PATH"] as? String)!
-    
+
     static let userResource = "user"
     static let dashboardResource = "dashboard"
     static let gameResource = "usergame"
@@ -18,9 +20,11 @@ internal struct APIConstants {
     static let listResource = "list"
 }
 
+// MARK: - GameNetAPI
+
 public enum GameNetAPI {
     case login(data: LoginRequest)
-    case refreshToken
+    case refreshToken(data: RefreshTokenRequest)
     case dashboard
     case platforms
     case platform(id: String)
@@ -37,6 +41,8 @@ public enum GameNetAPI {
     case saveGame(data: GameEditRequest)
     case saveUserGame(data: UserGameEditRequest)
     case gameplays(id: String)
+
+    // MARK: Internal
 
     var baseURL: String {
         switch self {
@@ -152,6 +158,15 @@ public enum GameNetAPI {
         }
     }
 
+    var isRefreshToken: Bool {
+        switch self {
+        case .refreshToken:
+            return true
+        default:
+            return false
+        }
+    }
+
     func encodeParameters(into request: URLRequest) throws -> URLRequest {
         switch self {
         case let .login(parameters):
@@ -167,8 +182,8 @@ public enum GameNetAPI {
             return try parameterEncoder.encode(model, into: request)
         case let .saveUserGame(model):
             return try parameterEncoder.encode(model, into: request)
-        case .refreshToken:
-            return request
+        case let .refreshToken(parameters):
+            return try parameterEncoder.encode(parameters, into: request)
         case .dashboard,
              .platforms,
              .platform,
@@ -185,15 +200,9 @@ public enum GameNetAPI {
         }
     }
 
-    var isRefreshToken: Bool {
-        switch self {
-        case .refreshToken:
-            return true
-        default:
-            return false
-        }
-    }
 }
+
+// MARK: URLRequestConvertible
 
 extension GameNetAPI: URLRequestConvertible {
     public func asURLRequest() throws -> URLRequest {
