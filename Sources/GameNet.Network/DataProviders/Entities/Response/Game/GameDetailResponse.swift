@@ -7,13 +7,30 @@
 import Foundation
 
 public struct GameDetailResponse: Identifiable, Codable {
+
+    // MARK: Public
+
     public var id: String?
     public var name: String
     public var cover: String
     public var platform: String
     public var value: Decimal
-    public var boughtDate: Date
+    public var boughtDate: Date?
     public var gameplays: [GameplayResponse]?
+
+    public func toGameDetail() -> GameDetail {
+        return GameDetail(
+            id: id,
+            name: name,
+            cover: cover,
+            platform: platform,
+            value: value,
+            boughtDate: boughtDate,
+            gameplays: gameplays?.compactMap { $0.toGameplay() }
+        )
+    }
+
+    // MARK: Internal
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,15 +40,5 @@ public struct GameDetailResponse: Identifiable, Codable {
         case value
         case boughtDate
         case gameplays
-    }
-    
-    public func toGameDetail() -> GameDetail {
-        return GameDetail(id: self.id,
-                          name: self.name,
-                          cover: self.cover,
-                          platform: self.platform,
-                          value: self.value,
-                          boughtDate: self.boughtDate,
-                          gameplays: self.gameplays?.compactMap { $0.toGameplay() })
     }
 }

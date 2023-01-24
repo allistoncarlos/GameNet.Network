@@ -7,21 +7,17 @@
 import Foundation
 
 public struct GameDetail: Identifiable, Equatable, Hashable {
-    public var id: String?
-    public var name: String
-    public var cover: String
-    public var platform: String
-    public var value: Decimal
-    public var boughtDate: Date
-    public var gameplays: [Gameplay]?
 
-    public init(id: String?,
-                name: String,
-                cover: String,
-                platform: String,
-                value: Decimal,
-                boughtDate: Date,
-                gameplays: [Gameplay]?
+    // MARK: Lifecycle
+
+    public init(
+        id: String?,
+        name: String,
+        cover: String,
+        platform: String,
+        value: Decimal,
+        boughtDate: Date?,
+        gameplays: [Gameplay]?
     ) {
         self.id = id
         self.name = name
@@ -31,4 +27,15 @@ public struct GameDetail: Identifiable, Equatable, Hashable {
         self.boughtDate = boughtDate
         self.gameplays = gameplays
     }
+
+    // MARK: Public
+
+    public var id: String?
+    public var name: String
+    public var cover: String
+    public var platform: String
+    public var value: Decimal
+    public var boughtDate: Date?
+    public var gameplays: [Gameplay]?
+
 }
