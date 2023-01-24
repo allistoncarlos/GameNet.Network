@@ -15,7 +15,7 @@ public struct UserGame: Identifiable, Equatable, Hashable {
         gameId: String,
         userId: String,
         price: Double,
-        boughtDate: Date,
+        boughtDate: Date?,
         have: Bool,
         want: Bool,
         digital: Bool,
@@ -38,7 +38,7 @@ public struct UserGame: Identifiable, Equatable, Hashable {
     public var gameId: String
     public var userId: String
     public var price: Double
-    public var boughtDate: Date
+    public var boughtDate: Date?
     public var have: Bool
     public var want: Bool
     public var digital: Bool
