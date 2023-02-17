@@ -112,9 +112,9 @@ public enum GameNetAPI {
             return "\(APIConstants.gameplaySessionResource)?userGameId=\(id)"
         case let .gameplaysByYear(year, month):
             if let monthValue = month {
-                return "\(APIConstants.gameplaySessionResource)/\(year)/\(monthValue)"
+                return "\(APIConstants.gameplaySessionResource)/sessionby/\(year)/\(monthValue)"
             } else {
-                return "\(APIConstants.gameplaySessionResource)/\(year)"
+                return "\(APIConstants.gameplaySessionResource)/sessionby/\(year)"
             }
         }
     }
