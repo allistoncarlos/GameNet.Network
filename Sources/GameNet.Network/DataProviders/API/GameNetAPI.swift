@@ -41,6 +41,7 @@ public enum GameNetAPI {
     case saveGame(data: GameEditRequest)
     case saveUserGame(data: UserGameEditRequest)
     case gameplays(id: String)
+    case gameplaysByYear(year: Int, month: Int? = nil)
 
     // MARK: Internal
 
@@ -109,6 +110,12 @@ public enum GameNetAPI {
             return APIConstants.gameResource
         case let .gameplays(id):
             return "\(APIConstants.gameplaySessionResource)?userGameId=\(id)"
+        case let .gameplaysByYear(year, month):
+            if let monthValue = month {
+                return "\(APIConstants.gameplaySessionResource)/\(year)/\(monthValue)"
+            } else {
+                return "\(APIConstants.gameplaySessionResource)/\(year)"
+            }
         }
     }
 
@@ -125,7 +132,8 @@ public enum GameNetAPI {
 
              .games,
              .game,
-             .gameplays:
+             .gameplays,
+             .gameplaysByYear:
             return .get
         case .login,
              .refreshToken:
@@ -195,7 +203,8 @@ public enum GameNetAPI {
 
              .games,
              .game,
-             .gameplays:
+             .gameplays,
+             .gameplaysByYear:
             return request
         }
     }
