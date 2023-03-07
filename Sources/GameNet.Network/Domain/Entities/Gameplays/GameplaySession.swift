@@ -15,12 +15,18 @@ public struct GameplaySession: Identifiable, Equatable, Hashable {
         userGameId: String,
         start: Date,
         finish: Date?,
+        gameName: String,
+        gameCover: String,
+        platformName: String,
         totalGameplayTime: String
     ) {
         self.id = id
         self.userGameId = userGameId
         self.start = start
         self.finish = finish
+        self.gameName = gameName
+        self.gameCover = gameCover
+        self.platformName = platformName
         self.totalGameplayTime = totalGameplayTime
     }
 
@@ -30,5 +36,8 @@ public struct GameplaySession: Identifiable, Equatable, Hashable {
     public var userGameId: String
     public var start: Date
     public var finish: Date?
+    public var gameName: String
+    public var gameCover: String
+    public var platformName: String
     public var totalGameplayTime: String
 }
