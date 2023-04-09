@@ -184,9 +184,6 @@ public enum GameNetAPI {
         case let .savePlatform(_, model):
             return try parameterEncoder.encode(model, into: request)
         case let .saveGame(model):
-            var request = request
-            request.headers.update(name: "Content-Type", value: "multipart/form-data; charset=UTF-8")
-
             return try parameterEncoder.encode(model, into: request)
         case let .saveUserGame(model):
             return try parameterEncoder.encode(model, into: request)

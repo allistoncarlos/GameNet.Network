@@ -9,6 +9,7 @@ import Foundation
 import GameNet_Keychain
 
 class DefaultRequestInterceptor: RequestInterceptor {
+
     let retryLimit = 3
     let retryDelay: TimeInterval = 10
 
@@ -21,8 +22,9 @@ class DefaultRequestInterceptor: RequestInterceptor {
 
         if let accessToken = KeychainDataSource.accessToken.get() {
             urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            urlRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        } else {}
+        } else {
+            // TODO: COLOCAR AQUI A CHAMADA PRO REFRESH TOKEN
+        }
 
         completion(.success(urlRequest))
     }
@@ -66,4 +68,5 @@ class DefaultRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetry)
         }
     }
+
 }
