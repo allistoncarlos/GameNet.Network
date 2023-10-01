@@ -10,16 +10,19 @@ public struct PlayingGame: Identifiable, Equatable, Hashable {
     public var id: String?
     public var name: String
     public var platform: String
+    public var coverURL: String
     public var latestGameplaySession: LatestGameplaySession?
 
     public init(id: String?,
                 name: String,
                 platform: String,
+                coverURL: String,
                 latestGameplaySession: LatestGameplaySession?
     ) {
         self.id = id
         self.name = name
         self.platform = platform
+        self.coverURL = coverURL
         self.latestGameplaySession = latestGameplaySession
     }
 }
