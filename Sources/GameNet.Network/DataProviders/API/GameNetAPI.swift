@@ -66,7 +66,7 @@ public enum GameNetAPI {
             return "\(APIConstants.platformResource)/\(id)"
         case let .savePlatform(id, _):
             if let id = id {
-                return "\(APIConstants.platformResource)?id=\(id)"
+                return "\(APIConstants.platformResource)/\(id)"
             }
 
             return "\(APIConstants.platformResource)/"
@@ -81,7 +81,7 @@ public enum GameNetAPI {
             return "\(APIConstants.listResource)/\(id)"
         case let .saveList(id, _):
             if let id = id {
-                return "\(APIConstants.listResource)?id=\(id)"
+                return "\(APIConstants.listResource)/\(id)"
             }
 
             return APIConstants.listResource
