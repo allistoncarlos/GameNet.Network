@@ -34,7 +34,7 @@ public enum GameNetAPI {
     case finishedByYearList(id: String)
     case boughtByYearList(id: String)
     case list(id: String)
-    case saveList(id: String?, data: ListRequest)
+    case saveList(id: String?, data: ListGameRequest)
 
     case games(search: String?, page: Int?, pageSize: Int?)
     case game(id: String)

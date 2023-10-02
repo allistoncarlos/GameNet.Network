@@ -25,5 +25,9 @@ public struct ListGame: Identifiable, Equatable, Hashable {
     public var id: String?
     public var name: String
     public var games: [ListItem]?
+    
+    public func toRequest() -> ListGameRequest {
+        return ListGameRequest(id: id, name: name)
+    }
 
 }
