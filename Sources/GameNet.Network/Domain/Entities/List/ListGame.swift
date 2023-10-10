@@ -26,8 +26,22 @@ public struct ListGame: Identifiable, Equatable, Hashable {
     public var name: String
     public var games: [ListItem]?
     
-    public func toRequest() -> ListGameRequest {
-        return ListGameRequest(id: id, name: name)
+    public func toRequest(userId: String?) -> ListGameRequest {
+        let gamesRequest = games?.enumerated().map { (index, game) in
+            return ListItemRequest(
+                id: game.id,
+                userId: userId ?? "",
+                userGameId: game.userGameId ?? "",
+                listId: self.id ?? "",
+                gameName: game.name,
+                platformName: game.platform ?? "",
+                cover: game.cover ?? "",
+                order: index,
+                comment: game.comment ?? ""
+            )
+        } ?? []
+        
+        return ListGameRequest(id: id, name: name, games: gamesRequest)
     }
 
 }
