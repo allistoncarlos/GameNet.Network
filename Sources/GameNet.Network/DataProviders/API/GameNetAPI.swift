@@ -42,6 +42,7 @@ public enum GameNetAPI {
     case saveUserGame(data: UserGameEditRequest)
     case gameplays(id: String)
     case gameplaysByYear(year: Int, month: Int? = nil)
+    case saveGameplaySession(data: GameplaySessionRequest)
 
     // MARK: Internal
 
@@ -116,6 +117,12 @@ public enum GameNetAPI {
             } else {
                 return "\(APIConstants.gameplaySessionResource)/sessionby/\(year)"
             }
+        case let .saveGameplaySession(request):
+            if request.finish != nil {
+                return "\(APIConstants.gameplaySessionResource)?userGameId=\(request.userGameId)"
+            }
+
+            return APIConstants.gameplaySessionResource
         }
     }
 
@@ -153,6 +160,12 @@ public enum GameNetAPI {
         case .saveGame,
              .saveUserGame:
             return .post
+        case let .saveGameplaySession(request):
+            if request.finish != nil {
+                return .put
+            }
+                
+            return .post
         }
     }
 
@@ -188,6 +201,8 @@ public enum GameNetAPI {
         case let .saveUserGame(model):
             return try parameterEncoder.encode(model, into: request)
         case let .refreshToken(parameters):
+            return try parameterEncoder.encode(parameters, into: request)
+        case let .saveGameplaySession(parameters):
             return try parameterEncoder.encode(parameters, into: request)
         case .dashboard,
              .platforms,
