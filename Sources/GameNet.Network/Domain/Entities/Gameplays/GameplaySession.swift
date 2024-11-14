@@ -40,4 +40,13 @@ public struct GameplaySession: Identifiable, Equatable, Hashable {
     public var gameCover: String
     public var platformName: String
     public var totalGameplayTime: String
+    
+    public func toRequest() -> GameplaySessionRequest {
+        return GameplaySessionRequest(
+            userGameId: userGameId,
+            start: start,
+            finish: finish,
+            id: id
+        )
+    }
 }
