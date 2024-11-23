@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UserGameEditRequest.swift
 //
 //
 //  Created by Alliston Aleixo on 18/05/22.

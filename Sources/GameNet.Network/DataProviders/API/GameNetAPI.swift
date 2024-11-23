@@ -18,6 +18,7 @@ internal enum APIConstants {
     static let gameplaySessionResource = "gameplaysession"
     static let platformResource = "platform"
     static let listResource = "list"
+    static let serverDrivenResource = "serverdriven"
 }
 
 // MARK: - GameNetAPI
@@ -43,6 +44,8 @@ public enum GameNetAPI {
     case gameplays(id: String)
     case gameplaysByYear(year: Int, month: Int? = nil)
     case saveGameplaySession(data: GameplaySessionRequest)
+    
+    case serverDriven(slug: String)
 
     // MARK: Internal
 
@@ -123,6 +126,8 @@ public enum GameNetAPI {
             }
 
             return APIConstants.gameplaySessionResource
+        case let .serverDriven(slug):
+            return "\(APIConstants.serverDrivenResource)/\(slug)"
         }
     }
 
@@ -140,7 +145,8 @@ public enum GameNetAPI {
              .games,
              .game,
              .gameplays,
-             .gameplaysByYear:
+             .gameplaysByYear,
+             .serverDriven:
             return .get
         case .login,
              .refreshToken:
@@ -216,7 +222,9 @@ public enum GameNetAPI {
              .games,
              .game,
              .gameplays,
-             .gameplaysByYear:
+             .gameplaysByYear,
+            
+             .serverDriven:
             return request
         }
     }
