@@ -5,10 +5,12 @@
 //
 
 import Foundation
+import SwiftData
 
 // MARK: - PlatformGame
 
-public struct PlatformGame: Identifiable, Equatable, Hashable {
+@Model
+public class PlatformGame: Identifiable, Equatable, Hashable {
 
     // MARK: Lifecycle
 
@@ -32,18 +34,20 @@ public struct PlatformGame: Identifiable, Equatable, Hashable {
 
 // MARK: - PlatformGames
 
-public struct PlatformGames: Identifiable, Equatable, Hashable {
+@Model
+public class PlatformGames: Identifiable, Equatable, Hashable {
 
     // MARK: Lifecycle
 
     public init(total: Int, platforms: [PlatformGame]) {
+        self.id = UUID().uuidString
         self.total = total
         self.platforms = platforms
     }
 
     // MARK: Public
 
-    public let id = UUID()
+    public var id: String?
     public var total: Int
     public var platforms: [PlatformGame]
 }

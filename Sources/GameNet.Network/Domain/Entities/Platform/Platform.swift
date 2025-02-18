@@ -5,18 +5,17 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct Platform: Identifiable, Equatable, Hashable {
-
+@Model
+public class Platform: Identifiable, Equatable, Hashable {
     // MARK: Lifecycle
-
     public init(id: String?, name: String) {
         self.id = id
         self.name = name
     }
 
     // MARK: Public
-
     public var id: String?
     public var name: String
 

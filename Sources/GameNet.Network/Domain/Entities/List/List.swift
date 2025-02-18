@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct List: Identifiable, Equatable, Hashable {
+@Model
+public class List: Identifiable, Equatable, Hashable {
 
     // MARK: Lifecycle
 

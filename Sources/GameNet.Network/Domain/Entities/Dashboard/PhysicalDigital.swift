@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct PhysicalDigital: Equatable, Hashable {
+@Model
+public class PhysicalDigital: Equatable, Hashable {
 
     // MARK: Lifecycle
 

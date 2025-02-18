@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct ServerDriven: Identifiable, Equatable, Hashable {
+@Model
+public class ServerDriven: Identifiable, Equatable, Hashable {
 
     // MARK: Lifecycle
 

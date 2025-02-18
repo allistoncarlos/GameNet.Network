@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct GameDetail: Identifiable, Equatable, Hashable {
+@Model
+public class GameDetail: Identifiable, Equatable, Hashable {
 
     // MARK: Lifecycle
 

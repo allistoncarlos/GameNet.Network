@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct Dashboard: Equatable, Hashable {
+@Model
+public class Dashboard: Equatable, Hashable {
 
     // MARK: Lifecycle
 

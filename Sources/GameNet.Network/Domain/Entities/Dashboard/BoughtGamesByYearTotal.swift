@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct BoughtGamesByYearTotal: Equatable, Hashable {
+@Model
+public class BoughtGamesByYearTotal: Equatable, Hashable {
     public var year: Int
     public var total: Decimal
     public var quantity: Int

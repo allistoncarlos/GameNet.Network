@@ -5,8 +5,10 @@
 //
 
 import Foundation
+import SwiftData
 
-public struct PlayingGame: Identifiable, Equatable, Hashable {
+@Model
+public class PlayingGame: Identifiable, Equatable, Hashable {
     public var id: String?
     public var name: String
     public var platform: String
