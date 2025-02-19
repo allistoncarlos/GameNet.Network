@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol Syncable: AnyObject {
+@objc public protocol Syncable: AnyObject {
     var synced: Bool { get set }
 }
