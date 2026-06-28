@@ -45,6 +45,7 @@ public enum GameNetAPI {
     case gameplaysByYear(year: Int, month: Int? = nil)
     case saveGameplaySession(data: GameplaySessionRequest)
     case finishGame(userGameId: String)
+    case dropGameplay(userGameId: String)
     
     case serverDriven(slug: String)
 
@@ -129,6 +130,8 @@ public enum GameNetAPI {
             return APIConstants.gameplaySessionResource
         case let .finishGame(userGameId):
             return "\(APIConstants.gameResource)/finish-gameplay/\(userGameId)"
+        case let .dropGameplay(userGameId):
+            return "\(APIConstants.gameResource)/drop-gameplay/\(userGameId)"
         case let .serverDriven(slug):
             return "\(APIConstants.serverDrivenResource)/\(slug)"
         }
@@ -175,7 +178,8 @@ public enum GameNetAPI {
             }
                 
             return .post
-        case .finishGame:
+        case .finishGame,
+             .dropGameplay:
             return .put
         }
     }
@@ -229,6 +233,7 @@ public enum GameNetAPI {
              .gameplays,
              .gameplaysByYear,
              .finishGame,
+             .dropGameplay,
             
              .serverDriven:
             return request
